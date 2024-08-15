@@ -56,7 +56,7 @@ const ProductTable: React.FC = () => {
   }
 
   return (
-    <div className='p-3 '>
+    <div className='p-3 lg:px-20'>
       <div className="mt-6 flex justify-center">
         <button
           type="button"
@@ -66,16 +66,16 @@ const ProductTable: React.FC = () => {
         </button>
       </div>
 
-      <div className="mt-6 p-2 border border-yellow-500 overflow-x-auto">
+      <div className="mt-6 p-2 border border-yellow-500 overflow-x-auto ">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider">#</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider">Image</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider">Price</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider">Category</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">#</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px]  md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Image</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Name</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Price</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Category</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
@@ -90,9 +90,9 @@ const ProductTable: React.FC = () => {
                     style={{ width: '2rem', height: '2rem' }} // Smaller image for mobile
                   />
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-[8px] sm:text-base text-gray-900">{product.name}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-[8px] sm:text-base text-gray-900">${product.price}</td>
-                <td className="px-6 py-4 whitespace-nowrap text-[8px] sm:text-base text-gray-900">{product.category}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-[8px] md:text-[12px]  sm:text-base text-gray-900">{product.name}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-[8px] md:text-[12px] sm:text-base text-gray-900">${product.price}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-[8px] md:text-[12px] sm:text-base text-gray-900">{product.category}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-[8px] sm:text-base font-medium">
                   <NavLink
                     to={`/updateProduct/${product._id}`}

@@ -87,8 +87,7 @@ const ShowCart = () => {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Cart</h1>
+    <div className="p-4 lg:px-40 lg:mt-24">
       {cart.length > 0 ? (
         <div className='space-y-4'>
           {cart.map((product) => (
