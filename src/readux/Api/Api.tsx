@@ -3,6 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export type TProduct = {
     id:string,
+    _id:string,
     name: string;
     price: number;
     stock: number;
@@ -17,10 +18,10 @@ export const baseApi = createApi({
     reducerPath: 'baseApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
     endpoints: (builder) => ({
-        getProducts: builder.query<TProduct[], { name?: string; description?: string; category?: string; minPrice?: number; maxPrice?: number; sortPrice?: 'asc' | 'desc' }>({
-            query: ({ name, description, category, minPrice, maxPrice, sortPrice }) => ({
+        getProducts: builder.query<TProduct[], { name?: string; description?: string; category?: string; minPrice?: number; rating?: number, maxPrice?: number; sortPrice?: 'asc' | 'desc' }>({
+            query: ({ name, description, category, minPrice, maxPrice, sortPrice ,rating}) => ({
                 url: '/api/product',
-                params: { name, description, category, minPrice, maxPrice, sortPrice },
+                params: { name, description, category, minPrice, maxPrice, sortPrice,rating },
             }),
             transformResponse: (response: { data: TProduct[] }) => response.data, // Ensure data is in the expected format colext form google
         }),
@@ -52,9 +53,9 @@ export const baseApi = createApi({
                 method: 'DELETE',
             }),
         }),
-        updateProduct: builder.mutation<{ success: boolean; id: string }, { id: string; updatedProduct: Partial<TProduct> }>({
-            query: ({ id, updatedProduct }) => ({
-                url: `/api/product/${id}`,
+        updateProduct: builder.mutation<{ success: boolean; _id: string }, { _id: string; updatedProduct: Partial<TProduct> }>({
+            query: ({ _id, updatedProduct }) => ({
+                url: `/api/product/${_id}`,
                 method: 'PUT',
                 body: updatedProduct,
             }),

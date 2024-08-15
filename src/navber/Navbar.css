@@ -46,3 +46,6 @@
 .nav-link:hover {
   color: #3498db; /* Adjust this color as needed */
 }
+.backdrop-blur-md {
+  backdrop-filter: blur(10px);
+}

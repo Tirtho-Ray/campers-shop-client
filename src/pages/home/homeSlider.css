@@ -1,0 +1,65 @@
+/* Add this CSS to your stylesheet or style block */
+
+.mySwiper {
+    position: relative;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #000; /* Customize the arrow color */
+    width: 40px; /* Size of the arrows */
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8); /* Background color */
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px; /* Size of the arrow icon */
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-family: 'SwiperIcons'; /* Use Swiper's icon font */
+    font-size: 20px;
+    color: #000; /* Arrow icon color */
+  }
+  
+  .swiper-button-next {
+    right: 10px; /* Position the next arrow */
+  }
+  
+  .swiper-button-prev {
+    left: 10px; /* Position the prev arrow */
+  }
+  
+  .swiper-pagination {
+    bottom: 10px; /* Position pagination dots */
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .swiper-pagination-bullet {
+    background: #000; /* Pagination bullet color */
+    opacity: 1; /* Ensure full opacity */
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #ff4081; /* Active pagination bullet color */
+  }
+  
+  .seeBorder{
+    border: 1px solid black;
+    border-radius: px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .seeBorder:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.05);
+  }
+  
+  .seeBorder:active {
+    background-color: #e1e1e1;
+    transform: scale(0.95);
+  }

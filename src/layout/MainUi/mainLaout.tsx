@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <div className="">
       <Navbar />
-      <div style={{ marginTop: '76px' }}>
+      <div>
       <ScrollManager>
         <Outlet />
       </ScrollManager>

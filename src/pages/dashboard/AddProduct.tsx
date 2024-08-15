@@ -2,15 +2,16 @@ import { FormEvent, useState } from "react";
 import { useCreateProductMutation } from "../../readux/Api/Api";
 
 const AddProduct = () => {
-  const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [stockQuantity, setStockQuantity] = useState('');
-  const [category, setCategory] = useState('');
-  const [ratings, setRatings] = useState('');
-  const [image, setImage] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [stockQuantity, setStockQuantity] = useState("");
+  const [category, setCategory] = useState("");
+  const [ratings, setRatings] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
 
-  const [createProduct, { isLoading, isError, isSuccess }] = useCreateProductMutation();
+  const [createProduct, { isLoading, isError, isSuccess }] =
+    useCreateProductMutation();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -26,9 +27,9 @@ const AddProduct = () => {
     };
     try {
       await createProduct(productData).unwrap();
-      console.log('Product created successfully');
+      console.log("Product created successfully");
     } catch (error) {
-      console.error('Failed to create product', error);
+      console.error("Failed to create product", error);
     }
   };
 
@@ -39,8 +40,13 @@ const AddProduct = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="name" className="block text-md font-medium text-gray-700">Name</label>
-               <input
+              <label
+                htmlFor="name"
+                className="block text-md font-medium text-gray-700"
+              >
+                Name
+              </label>
+              <input
                 type="text"
                 value={name}
                 required
@@ -49,7 +55,12 @@ const AddProduct = () => {
               />
             </div>
             <div>
-              <label htmlFor="price" className="block text-md font-medium text-gray-700">Price</label>
+              <label
+                htmlFor="price"
+                className="block text-md font-medium text-gray-700"
+              >
+                Price
+              </label>
               <input
                 type="text"
                 placeholder="price"
@@ -62,7 +73,12 @@ const AddProduct = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="stockQuantity" className="block text-md font-medium text-gray-700">Stock Quantity</label>
+              <label
+                htmlFor="stockQuantity"
+                className="block text-md font-medium text-gray-700"
+              >
+                Stock Quantity
+              </label>
               <input
                 type="text"
                 required
@@ -72,19 +88,36 @@ const AddProduct = () => {
               />
             </div>
             <div>
-              <label htmlFor="category" className="block text-md font-medium text-gray-700">Category</label>
-              <input
-                type="text"
-                value={category}
-                required
-                onChange={(e) => setCategory(e.target.value)}
-                className="mt-1 h-10 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-              />
+              <label
+                htmlFor="category"
+                className="block text-md font-medium text-gray-700"
+              >
+                Category
+              </label>
+              <select
+                id="category"
+                name="category"
+                value={category} // Ensure the value is bound to the state
+                onChange={(e) => setCategory(e.target.value)} // Update state on change
+                className="mt-1 block w-full h-10 border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+              >
+                <option value="">Select a category</option>
+                <option value="tents-shelters">Tents & Shelters</option>
+                <option value="camping-gear-equipment">Camping Gear & Equipment</option>
+                <option value="apparel-footwear">Apparel & Footwear</option>
+                <option value="camping-furniture-accessories">Camping Furniture & Accessories</option>
+                <option value="survival-safety-gear">Survival & Safety Gear</option>
+              </select>
             </div>
           </div>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="ratings" className="block text-md font-medium text-gray-700">Ratings</label>
+              <label
+                htmlFor="ratings"
+                className="block text-md font-medium text-gray-700"
+              >
+                Ratings
+              </label>
               <input
                 type="text"
                 value={ratings}
@@ -94,7 +127,12 @@ const AddProduct = () => {
               />
             </div>
             <div>
-              <label htmlFor="image" className="block text-md font-medium text-gray-700">Image URL</label>
+              <label
+                htmlFor="image"
+                className="block text-md font-medium text-gray-700"
+              >
+                Image URL
+              </label>
               <input
                 type="text"
                 value={image}
@@ -105,7 +143,12 @@ const AddProduct = () => {
             </div>
           </div>
           <div>
-            <label htmlFor="description" className="block text-md font-medium text-gray-700">Description</label>
+            <label
+              htmlFor="description"
+              className="block text-md font-medium text-gray-700"
+            >
+              Description
+            </label>
             <textarea
               value={description}
               required
@@ -114,12 +157,23 @@ const AddProduct = () => {
             ></textarea>
           </div>
           <div className="flex justify-end">
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
-              {isLoading ? 'Adding...' : 'Add Product'}
+            <button
+              type="submit"
+              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+            >
+              {isLoading ? "Adding..." : "Add Product"}
             </button>
           </div>
-          {isError && <div className="text-red-500 mt-2">Failed to add product. Please try again.</div>}
-          {isSuccess && <div className="text-green-500 mt-2">Product added successfully!</div>}
+          {isError && (
+            <div className="text-red-500 mt-2">
+              Failed to add product. Please try again.
+            </div>
+          )}
+          {isSuccess && (
+            <div className="text-green-500 mt-2">
+              Product added successfully!
+            </div>
+          )}
         </form>
       </div>
     </div>

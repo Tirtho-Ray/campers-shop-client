@@ -1,9 +1,12 @@
+import HomeBestSelling from "./HomeBestSelling";
+import HomeSlider from "./HomeSlider";
 
 
 const Home = () => {
     return (
         <div>
-            <h1 className="font-Poppins">This is home</h1>
+            <HomeSlider />
+            <HomeBestSelling />
         </div>
     );
 };

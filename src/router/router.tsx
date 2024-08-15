@@ -9,6 +9,7 @@ import UpdateProduct from "../pages/dashboard/updateProduct";
 import ProductDetails from "../pages/product/productDetails";
 import ShowCart from "../pages/cart/cart";
 import OrderProduct from "../pages/order/order";
+import Contact from "../pages/contact/Contact";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         {
              path: "/about",
              element: <About /> 
+        },
+        {
+             path: "/contact",
+             element: <Contact /> 
         },
         {
              path: "/product",
