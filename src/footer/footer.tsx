@@ -1,3 +1,7 @@
+import AboutFoot from "./AboutFoot";
+import ContactFoot from "./ContactFoot";
+import FollowUsFoot from "./FollowUsFoot";
+import OrderFoot from "./OrderFoot";
 
 const Footer = () => {
     return (
@@ -9,7 +13,7 @@ const Footer = () => {
                <FollowUsFoot />
            </div>
            <div>
-               <AboutFoot />
+               <AboutFoot/>
            </div>
            <div>
                <ContactFoot />
@@ -21,7 +25,7 @@ const Footer = () => {
       </div>
       
       
-    <div className='py-10'>
+    <div className='py-6'>
        <p className='text-center  text-[10px]'>© Copyright 2024 Createcomm Tech Private Limited. All Rights Reserved</p>
        <p className='text-center  text-[10px] font-Rowdies'>Developer: <a href="https://github.com/Tirtho-Ray">Tirtho Ray</a></p>
     </div>

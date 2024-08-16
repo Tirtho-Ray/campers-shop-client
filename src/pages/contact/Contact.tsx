@@ -44,7 +44,7 @@ const Contact = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="mt-24 md:mt-28 md:flex lg:px-12 px-8 gap-4">
+      <div className="mt-24 md:mt-28 md:flex lg:px-12 px-8 gap-4 xl:px-32">
         <div className="border p-4 bg-slate-100 shadow-xl">
           <div>
             <div className="flex items-center gap-4">
