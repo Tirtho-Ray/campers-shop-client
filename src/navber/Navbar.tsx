@@ -83,8 +83,8 @@ const Navbar: React.FC = () => {
       <NavLink to="/dashboard" onClick={() => setIsOpen(false)} className="nav-link">
         <li className="px-2 py-2 text-md md:text-sm mt-2 rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none">Dashboard</li>
       </NavLink>
-      <NavLink to="/shop" onClick={() => setIsOpen(false)} className="nav-link">
-        <li className="px-2 py-2 text-md md:text-sm mt-2 rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none">Our Shop</li>
+      <NavLink to="/about" onClick={() => setIsOpen(false)} className="nav-link">
+        <li className="px-2 py-2 text-md md:text-sm mt-2 rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none">About us</li>
       </NavLink>
     </>
   );
