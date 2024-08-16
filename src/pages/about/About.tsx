@@ -2,6 +2,7 @@ import  { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import img from '../../assets/campers-about-picture/beautiful-smiling-woman-with-sma.png';
 import AboutWebDataBox from './aboutWebDataBox';
+import Team from './team';
 
 const About = () => {
     const textRef = useRef<(HTMLParagraphElement | null)[]>([]);
@@ -38,6 +39,7 @@ const About = () => {
             </div>
         </div>
         <AboutWebDataBox />
+        <Team />
        </div>
     );
 };

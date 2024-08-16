@@ -14,7 +14,7 @@ const HomeBestSelling: React.FC = () => {
     axios
       .get<{ data: TProduct[] }>("http://localhost:5000/api/product")
       .then((response) => {
-        const allProducts = response.data.data; // Adjust this based on your API response structure
+        const allProducts = response.data.data;
         // Filter products with rating 5 and limit to 3
         const filteredProducts = allProducts
           .filter((product) => product.rating === 5)
