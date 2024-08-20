@@ -16,7 +16,7 @@ export type TProduct = {
 
 export const baseApi = createApi({
     reducerPath: 'baseApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://campers-shop-srever.vercel.app/' }),
     endpoints: (builder) => ({
         getProducts: builder.query<TProduct[], { name?: string; description?: string; category?: string; minPrice?: number; rating?: number, maxPrice?: number; sortPrice?: 'asc' | 'desc' }>({
             query: ({ name, description, category, minPrice, maxPrice, sortPrice ,rating}) => ({

@@ -59,12 +59,13 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import { useSingleProductQuery } from "../../readux/Api/Api";
 import { addToCart } from '../../utils/cardUtils';
+import Loader from '../../Loader/Loader';
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { data: product, error, isLoading } = useSingleProductQuery(id || "");
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div><Loader /></div>;
   if (error) return <div>Error occurred: {error.message}</div>;
 
   return (
@@ -79,23 +80,26 @@ const ProductDetails = () => {
             />
           </div>
           <div className="mt-3">
+            <div className='flex justify-between'>
             <h1 className="text-2xl font-bold">{product.name}</h1>
-            <p className="text-lg font-bold mt-2">
-              ${product.price.toFixed(2)}
-            </p>
-            <p className="text-lg mt-2 font-Poppins">
-              Category : {product.category}
-            </p>
-            <p className="text-lg mt-2">Stock: {product.stock}</p>
-            <p className="text-lg mt-2 mb-3 ">Rating : {product.rating} *</p>
-            <p style={{ border: "1px solid blue ", marginTop: "3px" }}></p>
-            <p className=" text-[12px] md:text-[15px] lg:text-[18px] mt-4 lg:px-3">{product.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem est aliquam eius placeat neque id vitae sed exercitationem quaerat.</p>
             <button
               onClick={() => addToCart(product)}
-              className="px-[5px] py-1 bg-black text-white text-[9px] rounded-md hidden lg:block mt-10"
+              className="px-[5px] py-1 bg-black text-white text-[9px] rounded-md hidden lg:block "
             >
               + Add to cart
             </button>
+            </div>
+            <p className="text-lg font-bold mt-2">
+              Price: ${product.price.toFixed(2)}
+            </p>
+            <p className="text-md mt-2 font-Poppins font-semibold">
+              Category : {product.category}
+            </p>
+            <p className="text-md mt-2 font-semibold">Stock: {product.stock}</p>
+            <p className="text-md mt-2 mb-3  font-semibold">Rating : {product.rating} *</p>
+            <p style={{ border: "1px solid blue font-semibold ", marginTop: "3px" }}></p>
+            <p className=" text-[12px] md:text-[15px] lg:text-[13px] mt-4 lg:px-3">{product.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus autem est aliquam eius placeat neque id vitae sed exercitationem quaerat.</p>
+            
           </div>
         </div>
       ) : (

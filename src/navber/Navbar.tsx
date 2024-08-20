@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react";
-import { FaMoon, FaSun, FaUser } from "react-icons/fa";
+import React, { useContext, useState, useEffect, useRef } from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { MdClose, MdMenu } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import gsap from "gsap";
@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
   const themeContext = useContext(ThemeContext); // Use ThemeContext
 
   if (!themeContext) {
@@ -51,17 +52,33 @@ const Navbar: React.FC = () => {
       scrollTriggerInstance.kill();
     };
   }, []);
+  useEffect(() => {
+    if (isOpen && menuRef.current) {
+      gsap.fromTo(
+        menuRef.current,
+        { height: 0, opacity: 0 },
+        { height: "auto", opacity: 1, duration: 0.5, ease: "power2.out" }
+      );
+    } else if (menuRef.current) {
+      gsap.to(menuRef.current, {
+        height: 0,
+        opacity: 0,
+        duration: 0.5,
+        ease: "power4.in",
+      });
+    }
+  }, [isOpen]);
 
   // Cart and user icons
   const cartUserIcons = (
     <div className="flex items-center gap-1 md:gap-2 relative">
       <NavLink to="/">
-        <FaUser size={24} />
+        
       </NavLink>
       <NavLink to="addCart">
         <div className="relative">
           <FaCartPlus size={24} />
-          <div className="absolute top-0 right-0 bg-red-400 text-white text-xs h-4 w-4 rounded-full flex items-center justify-center">
+          <div className="absolute top-0 right-0 bg-red-400 text-white text-xs h-4 w-4 rounded-full  items-center justify-center hidden">
             {/* Badge number can be dynamically set */}
           </div>
         </div>
@@ -72,29 +89,31 @@ const Navbar: React.FC = () => {
   const navOptions = (
     <>
       <NavLink to="/" onClick={() => setIsOpen(false)} className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
-        <li className="px-2 py-2 text-md md:text-sm rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none border  md:border-none md:bg-white">Home</li>
+        <li className="px-2 py-2 text-md md:text-sm rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none border  md:border-none ">Home</li>
       </NavLink>
       <NavLink to="/product" onClick={() => setIsOpen(false)} className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>
-        <li className="px-2 py-2 text-md md:text-sm rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none">Products</li>
+        <li className="px-2 py-2 text-md md:text-sm rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none border  md:border-none">Products</li>
       </NavLink>
       <NavLink to="/contact" onClick={() => setIsOpen(false)} className="nav-link">
-        <li className="px-2 py-2 text-md md:text-sm mt-2 rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none">Contact Us</li>
+        <li className="px-2 py-2 text-md md:text-sm mt-2 rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none border  md:border-none">Contact Us</li>
+      </NavLink>
+
+      <NavLink to="/about" onClick={() => setIsOpen(false)} className="nav-link">
+        <li className="px-2 py-2 text-md md:text-sm mt-2 rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none border  md:border-none">About us</li>
       </NavLink>
       <NavLink to="/dashboard" onClick={() => setIsOpen(false)} className="nav-link">
-        <li className="px-2 py-2 text-md md:text-sm mt-2 rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none">Dashboard</li>
-      </NavLink>
-      <NavLink to="/about" onClick={() => setIsOpen(false)} className="nav-link">
-        <li className="px-2 py-2 text-md md:text-sm mt-2 rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none">About us</li>
+        <li className="px-2 py-2 text-md md:text-sm mt-2 rounded-md md:px-0 md:py-0 md:mt-0 md:rounded-none border  md:border-none">Dashboard</li>
       </NavLink>
     </>
   );
 
   return (
-    <div className={`navbar fixed top-0 w-full z-10 transition-transform duration-200 bg-transparent  ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
-      <div className={`py-3 md:py-4 lg:py-6 relative px-4 backdrop-blur-md  ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
+    <div className={`max-w-[1300px] mx-auto navbar fixed top-0 w-full z-10 transition-transform duration-200 bg-transparent hover:backdrop-blur-lg ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+      <div className={`py-[25px] lg:py-[26px] md:py-5  relative px-4 backdrop-blur-md  ${theme === 'dark' ? 'text-white' : 'text-black'}`}>
         <div className="flex justify-between items-center">
-          <div className="font-bold text-xl">
-            <p>Campers</p>
+          <div className="font-bold text-sm md:text-md">
+            <p className="font-serif ">Backwoods Basecamp
+            </p>
           </div>
           <div className="md:hidden flex items-center gap-2">
             {cartUserIcons}
@@ -107,7 +126,7 @@ const Navbar: React.FC = () => {
           </div>
           <ul className="hidden md:flex md:gap-2 list-none md:space-x-2 font-bold">
             {navOptions}
-            <button onClick={toggleTheme} className="focus:outline-none ml-2">
+            <button onClick={toggleTheme} className="focus:outline-none ml-2 sm:block md:hidden">
               {theme === 'light' ? <FaMoon size={24} /> : <FaSun size={24} />}
             </button>
           </ul>

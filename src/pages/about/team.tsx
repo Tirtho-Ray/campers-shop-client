@@ -26,7 +26,7 @@ const Team = () => {
               alt='man image' 
             />
             <div className='absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center p-4 rounded-lg'>
-              <h3 className='font-semibold text-lg'>John Doe</h3>
+              <h3 className='font-semibold text-lg'>Symon alis</h3>
               <p className='text-sm'>Founder</p>
               <div className='flex gap-4 mt-2'>
                 <a href='https://www.linkedin.com' target='_blank' rel='noopener noreferrer'>
@@ -48,7 +48,7 @@ const Team = () => {
               alt='man image' 
             />
             <div className='absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center p-4 rounded-lg'>
-              <h3 className='font-semibold text-lg'>John Doe</h3>
+              <h3 className='font-semibold text-lg'>Arena granda</h3>
               <p className='text-sm'>Designer</p>
               <div className='flex gap-4 mt-2'>
                 <a href='https://www.linkedin.com' target='_blank' rel='noopener noreferrer'>
@@ -70,7 +70,7 @@ const Team = () => {
               alt='man image' 
             />
             <div className='absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center p-4 rounded-lg'>
-              <h3 className='font-semibold text-lg'>John Doe</h3>
+              <h3 className='font-semibold text-lg'>Tony </h3>
               <p className='text-sm'>Executive Manager</p>
               <div className='flex gap-4 mt-2'>
                 <a href='https://www.linkedin.com' target='_blank' rel='noopener noreferrer'>
@@ -92,7 +92,7 @@ const Team = () => {
               alt='man image' 
             />
             <div className='absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center p-4 rounded-lg'>
-              <h3 className='font-semibold text-lg'>John Doe</h3>
+              <h3 className='font-semibold text-lg'>Rehena</h3>
               <p className='text-sm'>It expert</p>
               <div className='flex gap-4 mt-2'>
                 <a href='https://www.linkedin.com' target='_blank' rel='noopener noreferrer'>

@@ -14,18 +14,18 @@ const AboutWebDataBox = () => {
   useEffect(() => {
     gsap.fromTo(
       boxRefs.current,
-      { x: -200, opacity: 0 },  // Start position (from left)
+      { x: -200, opacity: 0 },  
       {
-        x: 0,                  // End position (to original position)
-        opacity: 1,            // Fade in
+        x: 0,                 
+        opacity: 1,           
         duration: 1.5,
-        stagger: 0.3,          // Delay between animations
+        stagger: 0.3,         
         ease: "power2.out",
         scrollTrigger: {
           trigger: boxRefs.current,
-          start: "top 80%",    // Start animation when boxes are 80% into the viewport
+          start: "top 80%",   
           end: "bottom 20%",
-          toggleActions: "play none none reverse", // Play the animation on scroll
+          toggleActions: "play none none reverse", 
         },
       }
     );

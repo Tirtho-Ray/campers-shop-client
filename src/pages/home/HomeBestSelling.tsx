@@ -12,7 +12,7 @@ const HomeBestSelling: React.FC = () => {
   useEffect(() => {
     // Fetch the products using Axios
     axios
-      .get<{ data: TProduct[] }>("http://localhost:5000/api/product")
+      .get<{ data: TProduct[] }>("https://campers-shop-srever.vercel.app/api/product")
       .then((response) => {
         const allProducts = response.data.data;
         // Filter products with rating 5 and limit to 3

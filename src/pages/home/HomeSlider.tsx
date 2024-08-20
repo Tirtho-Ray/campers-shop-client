@@ -8,45 +8,34 @@ import { Autoplay } from 'swiper/modules';
 const slides = [
   {
     id: 1,
+    src: 'https://i.ibb.co/hCtDpNL/pic1.png',
+    alt: 'Image 5'
+  },
+  {
+    id: 2,
     src: 'https://i.ibb.co/2NkcS36/Best-survival-kit.png',
     alt: 'Image 1'
   },
   
   {
     id: 3,
-    src: 'https://i.ibb.co/bJgCSCT/images1png.png',
+    src: 'https://i.ibb.co/zWgHjwP/camping.png',
     alt: 'Image 3'
   },
   {
     id: 4,
-    src: 'https://i.ibb.co/HFNp6Cr/images3.png',
+    src: 'https://i.ibb.co/j6LXt4n/sunrise-view.png',
     alt: 'Image 4'
   },
-  {
-    id: 5,
-    src: 'https://i.ibb.co/LhQWL68/images4.png',
-    alt: 'Image 5'
-  },
+  
+
   {
     id: 6,
-    src: 'https://i.ibb.co/VJkG0p6/images5.png',
+    src: 'https://i.ibb.co/r0G4hb4/winter-c.png',
     alt: 'Image 6'
   },
-  {
-    id: 7,
-    src: 'https://i.ibb.co/ZY57NyB/images6.png',
-    alt: 'Image 7'
-  },
-  {
-    id: 8,
-    src: 'https://i.ibb.co/chMvt7R/pic1.png',
-    alt: 'Image 8'
-  },
-  {
-    id: 9,
-    src: 'https://i.ibb.co/gw2GGPt/pic2.png',
-    alt: 'Image 9'
-  },
+
+ 
   
 ];
 

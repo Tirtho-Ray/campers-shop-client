@@ -4,6 +4,7 @@ import ProductCardItem from "./ProductCardItem";
 import SearchBar from "./productSearch";
 import FilterBar from "./productFilter";
 import { TProduct, useGetProductsQuery } from "../../readux/Api/Api";
+import Loader from "../../Loader/Loader";
 
 const ProductCard = () => {
     const [query, setQuery] = useState<string>("");
@@ -27,8 +28,8 @@ const ProductCard = () => {
         setFilters({});
     };
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error occurred: {error.message}</div>;
+    if (isLoading) return <div>L<Loader /></div>;
+    if (error) return <div className="h-lvh text-center py-64">Error occurred ... {error.message}</div>;
 
     return (
         <div className="mt-24 md:mt-32">

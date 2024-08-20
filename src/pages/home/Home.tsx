@@ -1,4 +1,5 @@
 import HomeBestSelling from "./HomeBestSelling";
+import HomeContant from "./HomeContant";
 import HomeSlider from "./HomeSlider";
 
 
@@ -7,6 +8,7 @@ const Home = () => {
         <div>
             <HomeSlider />
             <HomeBestSelling />
+            <HomeContant />
         </div>
     );
 };

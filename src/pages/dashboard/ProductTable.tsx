@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useDeleteProductMutation, TProduct, useAllProductQuery } from '../../readux/Api/Api'; // Adjust path as necessary
+import Loader from '../../Loader/Loader';
 
 const ProductTable: React.FC = () => {
   const { data: products, error, isLoading, refetch } = useAllProductQuery();
@@ -41,12 +42,9 @@ const ProductTable: React.FC = () => {
     setLoadingDelete(false);
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div><Loader /></div>;
 
-  if (error) {
-    return <div>Error: {(error as any).message}</div>;
-  }
-
+  if (error) return <div className="h-lvh text-center py-64">Error occurred ... {error.message}</div>;
   console.log(products);
 
   const productsList: TProduct[] = products?.data || [];
@@ -70,12 +68,12 @@ const ProductTable: React.FC = () => {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">#</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px]  md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Image</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Price</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Category</th>
-              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] lg:text-[15px] font-medium text-gray-500 uppercase tracking-wider">#</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px]  md:text-[8px] lg:text-[15px] font-medium text-gray-500 uppercase tracking-wider">Image</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] lg:text-[15px] font-medium text-gray-500 uppercase tracking-wider">Name</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] lg:text-[15px] font-medium text-gray-500 uppercase tracking-wider">Price</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] lg:text-[15px] font-medium text-gray-500 uppercase tracking-wider">Category</th>
+              <th scope="col" className="px-6 py-3 text-left text-[10px] md:text-[8px] lg:text-[15px] font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">

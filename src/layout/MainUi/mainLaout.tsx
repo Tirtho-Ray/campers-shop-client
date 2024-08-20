@@ -5,7 +5,7 @@ import ScrollManager from "../../UI/ScrollToTop";
 
 const Main = () => {
   return (
-    <div className="">
+    <div className=" lg:max-w-[1300px] mx-auto">
       <Navbar />
       <div>
       <ScrollManager>

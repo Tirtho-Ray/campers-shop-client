@@ -37,3 +37,8 @@ export const getCart = (): TProduct[] => {
 export const saveCart = (cart: TProduct[]) => {
   localStorage.setItem('cart', JSON.stringify(cart));
 };
+
+export const clearCart = () => {
+  localStorage.removeItem('cart');
+ 
+};

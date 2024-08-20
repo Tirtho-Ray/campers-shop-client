@@ -23,7 +23,7 @@
 
   
   .nav-link.active {
-    color: rgb(96, 96, 67); /* Active link color */
+    color: rgb(17, 17, 16); /* Active link color */
   }
   
   .nav-link.active::after {
@@ -32,6 +32,10 @@
 /* Navbar.css */
 .navbar {
   height: 64px;
+  background-color: rgba(255, 255, 255, 0.3); /* Light glass effect */
+  backdrop-filter: blur(1px); /* Apply blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle border */
 }
 
 .nav-link {

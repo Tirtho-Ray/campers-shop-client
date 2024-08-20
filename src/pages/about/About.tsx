@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import img from '../../assets/campers-about-picture/beautiful-smiling-woman-with-sma.png';
 import AboutWebDataBox from './aboutWebDataBox';
 import Team from './team';
+import Map from './map';
 
 const About = () => {
     const textRef = useRef<(HTMLParagraphElement | null)[]>([]);
@@ -40,6 +41,9 @@ const About = () => {
         </div>
         <AboutWebDataBox />
         <Team />
+       <div className='mt-6 mb-4'>
+        <Map />
+       </div>
        </div>
     );
 };
