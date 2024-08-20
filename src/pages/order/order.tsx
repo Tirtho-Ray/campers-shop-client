@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Select, { SingleValue } from "react-select";
 import axios from "axios";
-import { TProduct } from "../../readux/Fetures/productSlise";
+
 import { clearCart, getCart } from "../../utils/cardUtils";
 import { Link } from "react-router-dom";
+import { TProduct } from "../../readux/Api/Api";
 
 // Types
 interface OptionType {
@@ -220,13 +221,14 @@ useEffect(() => {
   const cartItems = getCart();
   setCart(cartItems);
 
-  // Calculate total price
-  const total = cartItems.reduce((sum, product) => sum + parseFloat(product.price), 0);
+  // Calculate the total price of the cart items
+  const total = cartItems.reduce((sum, product) => sum + product.price, 0);
 
-  // Format total price to 2 decimal places
-  const formattedTotal = total.toFixed(2);
-  setTotalPrice(formattedTotal);
+  // Update the total price state as a number
+  setTotalPrice(total);
 }, []);
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center py-6 lg:py-12 mt-10 md:mt16 lg:mt-24 px-2">
@@ -255,7 +257,7 @@ useEffect(() => {
             ))}
             <div className="flex justify-end gap-3 font-bold text-lg">
               <span>Total Price:</span>
-              <span>{totalPrice}$</span>
+              <span>{totalPrice.toFixed(2)}$</span>
             </div>
           </div>
         )}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import  { useEffect, useRef } from "react";
 import { AiOutlineShop } from "react-icons/ai";
 import { FaSackDollar } from "react-icons/fa6";
 import { BsCurrencyDollar } from "react-icons/bs";

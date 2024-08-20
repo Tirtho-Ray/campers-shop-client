@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 import ProductCardItem from "./ProductCardItem";
 import SearchBar from "./productSearch";
 import FilterBar from "./productFilter";
@@ -29,7 +29,7 @@ const ProductCard = () => {
     };
 
     if (isLoading) return <div>L<Loader /></div>;
-    if (error) return <div className="h-lvh text-center py-64">Error occurred ... {error.message}</div>;
+    if (error) return <div className="h-lvh text-center py-64">Error occurred ... </div>;
 
     return (
         <div className="mt-24 md:mt-32">
