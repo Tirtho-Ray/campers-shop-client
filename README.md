@@ -48,5 +48,5 @@ Make sure you have the following installed on your local development environment
 
    live link:https://campers-shop-red.vercel.app
    ```
-   - [Live LInk:]((https://campers-shop-red.vercel.app)/)
+   - [Live LInk:](https://campers-shop-red.vercel.app)
    
